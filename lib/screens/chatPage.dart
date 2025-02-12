@@ -12,11 +12,11 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   List<ChatAI> chatAI = [
-    ChatAI(nameAI: "DeepSeek-R1", imageURL: "icons/DeepSeek.jpg"),
-    ChatAI(nameAI: "gpt2", imageURL: "icons/gpt2.jpg"),
-    ChatAI(nameAI: "Llama-3.1-8B-Instruct ", imageURL: "icons/MetaLlama.jpg"),
-    ChatAI(nameAI: "bart-large-cnn ", imageURL: "icons/BartLargeCNN.jpg"),
-    ChatAI(nameAI: "stable-diffusion-xl-refiner-1.0 ", imageURL: "icons/StableDiffusion.jpg"),
+    ChatAI(nameAI: "DeepSeek-R1", imageURL: "lib/icons/DeepSeek.jpeg"),
+    ChatAI(nameAI: "gpt2", imageURL: "lib/icons/gpt2.jpeg"),
+    ChatAI(nameAI: "Llama-3.1-8B-Instruct ", imageURL: "lib/icons/MetaLlama.jpeg"),
+    ChatAI(nameAI: "bart-large-cnn ", imageURL: "lib/icons/BartLargeCNN.jpeg"),
+    ChatAI(nameAI: "stable-diffusion-xl-refiner-1.0 ", imageURL: "lib/icons/StableDiffusion.jpeg"),
   ]; 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +63,12 @@ class _ChatPageState extends State<ChatPage> {
             ListView.builder(
               itemCount: chatAI.length,
               shrinkWrap: true,
-              padding: EdgeInsets.only(top: 16),
+              padding: EdgeInsets.only(top: 16),              
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index){
                 return ConversationList(
                   name: chatAI[index].nameAI,
-                  imageUrl: chatAI[index].imageURL,
+                  imageUrl: chatAI[index].imageURL,                  
                 );
               },
             ),

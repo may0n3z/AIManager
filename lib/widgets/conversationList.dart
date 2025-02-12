@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screens/chatDetailPage.dart';
 
+
 class ConversationList extends StatefulWidget{
   String name;
   String imageUrl;
@@ -10,6 +11,11 @@ class ConversationList extends StatefulWidget{
 }
 
 class _ConversationListState extends State<ConversationList> {
+
+
+  
+
+
   @override
   Widget build(BuildContext context) {
     return
@@ -20,7 +26,7 @@ class _ConversationListState extends State<ConversationList> {
         }));
       },
       child: Container(
-        padding: EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 10),
+        padding: EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 10),
         child: Row(
           children: <Widget>[
             Expanded(
@@ -30,15 +36,15 @@ class _ConversationListState extends State<ConversationList> {
                     backgroundImage: NetworkImage(widget.imageUrl),
                     maxRadius: 30,
                   ),
-                  SizedBox(width: 16,),
+                  SizedBox(width: 30,),
                   Expanded(
                     child: Container(
                       color: Colors.transparent,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(widget.name, style: TextStyle(fontSize: 16),),
-                          SizedBox(height: 6,),
+                          Text(widget.name, style: TextStyle(fontSize: 20), textAlign: TextAlign.center,),
+                          SizedBox(height: 30,),
                         ],
                       ),
                     ),
