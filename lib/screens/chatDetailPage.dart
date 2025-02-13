@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 import 'dart:convert';
+import 'package:huggingface_dart/huggingface_dart.dart';
 
 class ChatDetailPage extends StatefulWidget{
   @override
@@ -13,7 +14,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   final List<Map<String, String>> _messages = [];
   bool _isLoading = false;
   final Logger _logger = Logger();
-
+  
   Future<void> _sendMessage() async {
     setState(() {
       _isLoading = true;
@@ -22,7 +23,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     final message = _messageController.text;
     try {
       final response = await http.post(
-        Uri.parse('https://text.pollinations.ai/'), // URL API для чата с богом
+        Uri.parse('https://router.huggingface.co/together/v1/chat/completions'), // URL API для чата с богом
         body: jsonEncode({
           'messages': [
             {'role': 'system', 'content': 'You are a helpful assistant.'},
@@ -31,8 +32,10 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
           'model': 'openai',
           'jsonMode': true,
         }),
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json'} {'Authorization: Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxx'}
+
       );
+         
 
       setState(() {
         _isLoading = false;
