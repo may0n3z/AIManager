@@ -170,6 +170,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   SizedBox(width: 15,),
                   Expanded(
                     child: TextField(
+                      controller: _messageController,
                       decoration: InputDecoration(
                         hintText: "Write message...",
                         hintStyle: TextStyle(color: Colors.black54),
@@ -180,9 +181,9 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   SizedBox(width: 15,),
                   FloatingActionButton(
                     onPressed: _isLoading ? null : _sendMessage,
-                    child: Icon(Icons.send,color: Colors.white,size: 18,),
                     backgroundColor: const Color.fromARGB(255, 181, 144, 249),
                     elevation: 0,
+                    child: _isLoading ? const CircularProgressIndicator() : Icon(Icons.send,color: Colors.white,size: 18,),
                   ),
                 ],
 
